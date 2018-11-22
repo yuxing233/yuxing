@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#box {
+				width: 800px;
+				height: 600px;
+				margin: 0 auto;
+				border: 1px solid black;
+			}
+			#box1 {
+				width: 800px;
+				height: 70px;
+				font-size: 26px;
+				color: #000000;
+				text-align: center;
+				margin-top: 20px;
+			}
+			table {
+				border-collapse: collapse;
+				border: 1px solid #000000;
+			}
+			#box3{
+				color: red;
+			}
+			td{
+				width:240px;
+				height: 50px;
+				border-collapse: collapse;
+				border: 1px solid #000000;
+				text-align: center;
+			}
+			.color{
+				color: fuchsia;
+			}
+			a{
+				text-decoration: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			function capture(data){
+					var fa=data.parentNode.parentNode;
+					fa.parentNode.removeChild(fa);
+				}
+			function changecolor1(ss){
+				ss.style.color="fuchsia";
+			}
+			function changecolor2(ss){
+				ss.style.color="black";
+			}
+			window.onload=function(){
+				var input_botton=document.getElementById("input");
+				var count=0;
+				input_botton.onclick = function(){
+					count++;
+					var name=document.getElementById("name").value;
+					var sexs=document.getElementsByName("radio");
+					var table=document.getElementById("table");
+					var sex;
+					for (var i=0; i<=1; i++){
+						if (sexs[i].checked==true)
+						{
+							if (sexs[i].value==1) 
+							sex="男";
+							else sex="女";
+							break;
+						}
+					}
+					var x=document.createElement("tr");
+					x.innerHTML="<td>"+count+"</td>" + "<td id='zz"+count+"' onmouseover='changecolor1(this)' onmouseout='changecolor2(this)'>"+name+"</td>" + "<td>"+sex+"</td>"+
+					"<td><a id='XX"+count+"' href='#' onclick='capture(this);'>删除</a></td>";
+					table.appendChild(x);
+				}
+				
+			}	
+		</script>
+		<div id="box">
+			<div id="box1">
+				<span> 姓名：</span>
+				<input type="text" id="name" />
+				<span> 性别：</span> 
+				<input name="radio" type="radio" value="1"/>男
+				<input name="radio" type="radio" value="0"/>女
+				<button id="input">添加</button>
+			</div>
+			<table id="table">
+				<tr>
+					<td>编号</td>
+					<td>姓名</td>
+					<td>性别</td>
+					<td id="box3">个人操作</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
