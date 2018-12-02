@@ -1,0 +1,394 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no">
+<meta http-equiv=X-UA-Compatible content="IE=Edge,chrome=1">
+
+<title>CSS网页右下角悬浮在线人工客服和二维码代码</title>
+
+<link rel=stylesheet href="css/common.css">
+<link rel=stylesheet href="css/jdc-side-panel.css">
+
+</head>
+<body><script src="/demos/googlegg.js"></script>
+
+<div class="jdc-side" style="display: block;">
+  <div class="mod_hang_qrcode jdc_feedback_qrcode">
+    <div class="mod_hang_qrcode_btn"><i class="jdcfont"></i><span>扫码反馈</span></div>
+    <div class="mod_hang_qrcode_show">
+      <div class="mod-qr-tips"></div>
+      <div class="mod_hang_qrcode_show_bg">
+        <div id="canvas" style="height: 123px; width: 123px;"><img src="images/qr_img.png"></div>
+      </div>
+      <p>扫一扫，反馈当前页面</p>
+    </div>
+  </div>
+  <div class="mod_hang_appeal">
+    <div class="mod_hang_appeal_btn"><i class="jdcfont"></i> <span>咨询反馈</span></div>
+    <div class="mod_hang_appeal_show">
+      <ul>
+        <li><a href="#" target="_blank">
+          <div class="icon_box"><i class="jdcfont"></i></div>
+          <div class="text_box">
+            <h5>人工客服</h5>
+            <p>7*12 专业客服，服务咨询</p>
+          </div>
+          </a></li>
+        <li id="entry"><a href="#" target="_blank" class="f-cb">
+          <div class="icon_box"><i class="jdcfont"></i></div>
+          <div class="text_box">
+            <h5>工单服务</h5>
+            <p>7*24全时处理，技术支持</p>
+          </div>
+          </a></li>
+        <li><a href="#" target="_blank" class="f-cb">
+          <div class="icon_box"><i class="jdcfont"></i></div>
+          <div class="text_box">
+            <h5>投诉建议</h5>
+            <p>倾耳聆听，一个工作日内及时处理</p>
+          </div>
+          </a></li>
+      </ul>
+    </div>
+    </div>
+  <div class="mod_hang_qrcode jdc_hang_qrcode"><a class="mod_hang_qrcode_btn"><i class="jdcfont"></i><span>扫码关注</span></a>
+    <div class="mod_hang_qrcode_show">
+      <div class="mod_hang_qrcode_show_bg"></div>
+      <p>站长云微信公众号</p>
+    </div>
+  </div>
+  <div class="mod_hang_qrcode mod_hang_top"><a href="#" class="mod_hang_qrcode_btn"><i class="jdcfont"></i><span>返回顶部</span></a></div>
+  <div class="el-dialog__wrapper" style="display: none;">
+    <div class="el-dialog el-dialog--small" style="top: 15%;">
+      <div class="el-dialog__header"><span class="el-dialog__title"></span>
+        <div type="button" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></div>
+      </div>
+      </div>
+  </div>
+</div>
+<meta charset="utf-8">
+<title>HTML5 Canvas模糊圆点粒子背景动画特效</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<style>
+#bg {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1;
+}
+#bg canvas {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+a {
+			display: inline;
+			text-decoration: none;
+		}
+		
+body {
+			background-image: url('t01958cf36f4b5d224f.jpg');
+			background-repeat: no-repeat;
+			background-size: 1250px 600px;
+		}
+h1{
+	font-size: 55px;
+}
+p{
+	font-size: 35px;
+	color: black;
+}
+p1{
+	color: white;
+	font-size: 20px;
+}
+p2{
+	font-size: 25px;
+	color: darksalmon;
+	
+}
+a:link {text-decoration:none;
+font-size: 20px;
+color:#000000;}    /* unvisited link */
+a:visited {text-decoration:none;
+color:#00FF00;} /* visited link */
+a:hover {text-decoration:underline;
+color:#FF00FF;}   /* mouse over link */
+a:active {text-decoration:underline;
+color:#0000FF;}  /* selected link */
+</style>
+</head>
+<body>
+<div id="bg">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+
+<script>
+(function($){
+	var canvas = $('#bg').children('canvas'),
+		background = canvas[0],
+		foreground1 = canvas[1],
+		foreground2 = canvas[2],
+		config = {
+			circle: {
+				amount: 18,
+				layer: 3,
+				color: [157, 97, 207],
+				alpha: 0.3
+			},
+			line: {
+				amount: 12,
+				layer: 3,
+				color: [255, 255, 255],
+				alpha: 0.3
+			},
+			speed: 0.5,
+			angle: 20
+		};
+
+	if (background.getContext){
+		var bctx = background.getContext('2d'),
+			fctx1 = foreground1.getContext('2d'),
+			fctx2 = foreground2.getContext('2d'),
+			M = window.Math, // Cached Math
+			degree = config.angle/360*M.PI*2,
+			circles = [],
+			lines = [],
+			wWidth, wHeight, timer;
+		
+		requestAnimationFrame = window.requestAnimationFrame || 
+			window.mozRequestAnimationFrame ||
+			window.webkitRequestAnimationFrame ||
+			window.msRequestAnimationFrame ||
+			window.oRequestAnimationFrame ||
+			function(callback, element) { setTimeout(callback, 1000 / 60); };
+
+		cancelAnimationFrame = window.cancelAnimationFrame ||
+			window.mozCancelAnimationFrame ||
+			window.webkitCancelAnimationFrame ||
+			window.msCancelAnimationFrame ||
+			window.oCancelAnimationFrame ||
+			clearTimeout;
+
+		var setCanvasHeight = function(){
+			wWidth = $(window).width();
+			wHeight = $(window).height(),
+
+			canvas.each(function(){
+				this.width = wWidth;
+				this.height = wHeight;
+			});
+		};
+
+		var drawCircle = function(x, y, radius, color, alpha){
+			var gradient = fctx1.createRadialGradient(x, y, radius, x, y, 0);
+			gradient.addColorStop(0, 'rgba('+color[0]+','+color[1]+','+color[2]+','+alpha+')');
+			gradient.addColorStop(1, 'rgba('+color[0]+','+color[1]+','+color[2]+','+(alpha-0.1)+')');
+
+			fctx1.beginPath();
+			fctx1.arc(x, y, radius, 0, M.PI*2, true);
+			fctx1.fillStyle = gradient;
+			fctx1.fill();
+		};
+
+		var drawLine = function(x, y, width, color, alpha){
+			var endX = x+M.sin(degree)*width,
+				endY = y-M.cos(degree)*width,
+				gradient = fctx2.createLinearGradient(x, y, endX, endY);
+			gradient.addColorStop(0, 'rgba('+color[0]+','+color[1]+','+color[2]+','+alpha+')');
+			gradient.addColorStop(1, 'rgba('+color[0]+','+color[1]+','+color[2]+','+(alpha-0.1)+')');
+
+			fctx2.beginPath();
+			fctx2.moveTo(x, y);
+			fctx2.lineTo(endX, endY);
+			fctx2.lineWidth = 3;
+			fctx2.lineCap = 'round';
+			fctx2.strokeStyle = gradient;
+			fctx2.stroke();
+		};
+
+		var drawBack = function(){
+			bctx.clearRect(0, 0, wWidth, wHeight);
+
+			var gradient = [];
+			
+			gradient[0] = bctx.createRadialGradient(wWidth*0.3, wHeight*0.1, 0, wWidth*0.3, wHeight*0.1, wWidth*0.9);
+			gradient[0].addColorStop(0, 'rgb(0, 26, 77)');
+			gradient[0].addColorStop(1, 'transparent');
+
+			bctx.translate(wWidth, 0);
+			bctx.scale(-1,1);
+			bctx.beginPath();
+			bctx.fillStyle = gradient[0];
+			bctx.fillRect(0, 0, wWidth, wHeight);
+
+			gradient[1] = bctx.createRadialGradient(wWidth*0.1, wHeight*0.1, 0, wWidth*0.3, wHeight*0.1, wWidth);
+			gradient[1].addColorStop(0, 'rgb(0, 150, 240)');
+			gradient[1].addColorStop(0.8, 'transparent');
+
+			bctx.translate(wWidth, 0);
+			bctx.scale(-1,1);
+			bctx.beginPath();
+			bctx.fillStyle = gradient[1];
+			bctx.fillRect(0, 0, wWidth, wHeight);
+
+			gradient[2] = bctx.createRadialGradient(wWidth*0.1, wHeight*0.5, 0, wWidth*0.1, wHeight*0.5, wWidth*0.5);
+			gradient[2].addColorStop(0, 'rgb(40, 20, 105)');
+			gradient[2].addColorStop(1, 'transparent');
+
+			bctx.beginPath();
+			bctx.fillStyle = gradient[2];
+			bctx.fillRect(0, 0, wWidth, wHeight);
+		};
+
+		var animate = function(){
+			var sin = M.sin(degree),
+				cos = M.cos(degree);
+
+			if (config.circle.amount > 0 && config.circle.layer > 0){
+				fctx1.clearRect(0, 0, wWidth, wHeight);
+				for (var i=0, len = circles.length; i<len; i++){
+					var item = circles[i],
+						x = item.x,
+						y = item.y,
+						radius = item.radius,
+						speed = item.speed;
+
+					if (x > wWidth + radius){
+						x = -radius;
+					} else if (x < -radius){
+						x = wWidth + radius
+					} else {
+						x += sin*speed;
+					}
+
+					if (y > wHeight + radius){
+						y = -radius;
+					} else if (y < -radius){
+						y = wHeight + radius;
+					} else {
+						y -= cos*speed;
+					}
+
+					item.x = x;
+					item.y = y;
+					drawCircle(x, y, radius, item.color, item.alpha);
+				}
+			}
+
+			if (config.line.amount > 0 && config.line.layer > 0){
+				fctx2.clearRect(0, 0, wWidth, wHeight);
+				for (var j=0, len = lines.length; j<len; j++){
+					var item = lines[j],
+						x = item.x,
+						y = item.y,
+						width = item.width,
+						speed = item.speed;
+
+					if (x > wWidth + width * sin){
+						x = -width * sin;
+					} else if (x < -width * sin){
+						x = wWidth + width * sin;
+					} else {
+						x += sin*speed;
+					}
+
+					if (y > wHeight + width * cos){
+						y = -width * cos;
+					} else if (y < -width * cos){
+						y = wHeight + width * cos;
+					} else {
+						y -= cos*speed;
+					}
+					
+					item.x = x;
+					item.y = y;
+					drawLine(x, y, width, item.color, item.alpha);
+				}
+			}
+
+			timer = requestAnimationFrame(animate);
+		};
+
+		var createItem = function(){
+			circles = [];
+			lines = [];
+
+			if (config.circle.amount > 0 && config.circle.layer > 0){
+				for (var i=0; i<config.circle.amount/config.circle.layer; i++){
+					for (var j=0; j<config.circle.layer; j++){
+						circles.push({
+							x: M.random() * wWidth,
+							y: M.random() * wHeight,
+							radius: M.random()*(20+j*5)+(20+j*5),
+							color: config.circle.color,
+							alpha: M.random()*0.2+(config.circle.alpha-j*0.1),
+							speed: config.speed*(1+j*0.5)
+						});
+					}
+				}
+			}
+
+			if (config.line.amount > 0 && config.line.layer > 0){
+				for (var m=0; m<config.line.amount/config.line.layer; m++){
+					for (var n=0; n<config.line.layer; n++){
+						lines.push({
+							x: M.random() * wWidth,
+							y: M.random() * wHeight,
+							width: M.random()*(20+n*5)+(20+n*5),
+							color: config.line.color,
+							alpha: M.random()*0.2+(config.line.alpha-n*0.1),
+							speed: config.speed*(1+n*0.5)
+						});
+					}
+				}
+			}
+
+			cancelAnimationFrame(timer);
+			timer = requestAnimationFrame(animate);
+			drawBack();
+		};
+
+		$(document).ready(function(){
+			setCanvasHeight();
+			createItem();
+		});
+		$(window).resize(function(){
+			setCanvasHeight();
+			createItem();
+		});
+	}
+})(jQuery);</script>
+<h1 align="center" style="color:red ;">无线光电有限公司</h1>
+<p>项目名称：全覆盖无线充电技术</p>
+<p>项目发起人：余经理</p>
+<p1>（注：研究人员主要由某知名高校创新创业团队及各校光电实验室组成，同时和国家相关部门合作。）</p1>
+<p align="center">项目概况</p>
+<img src="img/t01850b881751d9572a.jpg"width="393px"height="250px" />
+<img src="img/t01bd5822dd10a5f4b4.jpg" width="425px" height="250px"/>
+<img src="img/t015e4ab592ae3ab4db.jpg" width="450px"height="250px"/>
+<p1>无线充电技术(英文:Wireless charging technology;Wireless charge technology )源于无线电能传输技术，可分为小功率无线充电和大功率无线充电两种方式。
+小功率无线充电常采用电磁感应式.由于充电器与用电装置之间以磁场传送能量，两者之间不用电线连接，因此充电器及用电的装置都可以做到无导电接点外露。</p1><br />
+<p1>由能量发送装置，和能量接收装置组成，当两个装置调整到相同频率，或者说在一个特定的频率上共振，它们就可以交换彼此的能量，是目前正在研究的一种技术。</p1><br />
+<p1>该项目主要针对于无线充电的大范围使用问题，致力于实现高效率、无污染、无公害传输电力。主要方向：先实现单一家庭内部无线供电，研发出合理供电、精确控电以及最优材料。之后进一步研发更广范围内无线供电，同时需一直保持绝对安全与可控性。</p1><br />
+<a href="1.html">点此处了解更多</a>
+<p align="center">市场背景</p>
+<p1>电气时代用电器的电量成为限制出行的原因之一，电力的需求影响着生活，而传统的充电方式已经不适应快节奏的生活，对新型充电方式的需求正逐渐增加。</p1><br />
+<p style="color: #00FF00;">核心竞争力</p>
+<p1>该技术已有初级理论基础，但核心问题仍未得到解决，市场需求很大，暂无优质的供应来源。结合高校最新理论和创新想法可以最快实现技术突破，进而抢占市场；同时可以获得相关专利保护知识产权，获得最大竞争力。
+</p1>
+<p style="color: #0000FF;">收入及利润预测</p>
+<p2>随着技术成熟、市场开拓，利润将以几何级趋势增长。</p2><br />
+<p1 style="color: bisque;">更多详情请扫描右方二维码关注我们</p1>
+</body>
+</html>
+
