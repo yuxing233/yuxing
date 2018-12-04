@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>无线生活，连接你我</title>
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<style>
+	body{
+		background-image: url(images/199a0da762470bbdc03cee6ec608d0aa_t013845c02069f0bb79.jpg);
+		background-size: 960px 1050px;
+		background-repeat:no-repeat;
+	}
+	h1{
+		font-size: 45px;
+		color: #111213;
+		margin-top: 10px;
+	}
+	h2{
+		margin-top: 200px;
+		color: white;
+		font-size: 75px;
+	}
+	h3{
+		margin-top:30px;
+		color: white;
+		font-size: 55px;
+	}
+	h4{
+		margin-top:310px ;
+		color: aliceblue;
+		margin-left: 700px;
+	}
+	img{
+		margin-left: 700px;
+	}
+	h5{
+		margin-top:0px;
+		margin-left: 100px;
+		color: white;
+		font-size: 15px;
+	}
+</style>
+</head>
+<body><script src="/demos/googlegg.js"></script>
+
+<div class="wrap">
+<h1 align="center">欢迎来到无线光电</h1><br />
+<h5>（注：此背景图为未来企业发展蓝图的一部分）</h5>}
+<h2 align="center">光电科技--光电网</h2><br />
+<h3 align="center">打造电力行业新生态</h3><br />
+<h4>扫描下方二维码关注我们，了解更多最新资讯</h4><img src="images/code.png" />
+
+</div>
+<div class="nav-main">
+<div class="nav-box">
+<div class="nav">
+  <ul class="nav-ul">
+  	<li><a href="#" class="home"><span>首页</span></a></li>
+  	<li><a href="#" class="develop"><span>关于我们</span></a></li>
+  	<li><a href="#" class="wechat"><span>业务领域</span></a></li>
+  	<li><a href="#" class="case"><span>科技创新</span></a></li>
+  	<li><a href="#" class="news"><span>在线服务</span></a></li>
+  </ul>
+</div>
+<div class="nav-slide">
+    <div class="nav-slide-o"></div>
+    <div class="nav-slide-o">
+    	<ul>
+    		<li><a href="1.html"><span>公司介绍</span></a></li>
+    		<li><a href="2.html"><span>报表板块</span></a></li>
+    		<li><a href="#"><span>暂未开启 &nbsp;敬请期待</span></a></li>
+    	</ul>
+    </div>
+    <div class="nav-slide-o">
+    	<ul>
+    		<li><a href="3.html"><span>初级业务</span></a></li>
+    		<li><a href="4.html"><span>业务发展</span></a></li>
+    		<li><a href="#"><span>后期业务正在规划</span></a></li>
+    	</ul>
+    </div>
+    <div class="nav-slide-o">
+    	<ul>
+    		<li><a href="5.html"><span>企业创新项目一</span></a></li>
+    		<li><a href="6.html"><span>企业创新项目二</span></a></li>
+    		<li><a href="#"><span>更多精彩，敬请期待</span></a></li>
+    	</ul>
+    </div>
+    <div class="nav-slide-o">
+    	<ul>
+    		<li><a href="8.html"><span>联系我们</span></a></li>
+    		<li><a href="9.html"><span>更多服务</span></a></li>
+    	</ul>
+    </div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	var thisTime;
+	$('.nav-ul li').mouseleave(function(even){
+			thisTime	=	setTimeout(thisMouseOut,1000);
+	})
+
+	$('.nav-ul li').mouseenter(function(){
+		clearTimeout(thisTime);
+		var thisUB	=	$('.nav-ul li').index($(this));
+		if($.trim($('.nav-slide-o').eq(thisUB).html()) != "")
+		{
+			$('.nav-slide').addClass('hover');
+			$('.nav-slide-o').hide();
+			$('.nav-slide-o').eq(thisUB).show();
+		}
+		else{
+			$('.nav-slide').removeClass('hover');
+		}
+		
+	})
+	
+	function thisMouseOut(){
+		$('.nav-slide').removeClass('hover');
+	}
+	 
+	$('.nav-slide').mouseenter(function(){
+		clearTimeout(thisTime);
+		$('.nav-slide').addClass('hover');
+	})
+	$('.nav-slide').mouseleave(function(){
+		$('.nav-slide').removeClass('hover');
+	})
+
+})
+</script>
+
+</body>
+</html>
